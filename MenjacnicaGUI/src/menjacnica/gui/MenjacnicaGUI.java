@@ -15,6 +15,9 @@ import javax.swing.JTextArea;
 import javax.swing.border.TitledBorder;
 import java.awt.Toolkit;
 import javax.swing.table.DefaultTableModel;
+
+import menjacnica.modeli.TabelaIzgled;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -27,6 +30,8 @@ import javax.swing.JPopupMenu;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -66,6 +71,15 @@ public class MenjacnicaGUI extends JFrame {
 				try {
 					MenjacnicaGUI frame = new MenjacnicaGUI();
 					frame.setVisible(true);
+					frame.setSize(new Dimension(700, 450));
+					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
+					frame.addWindowListener(new WindowAdapter() {
+						@Override
+						public void windowClosing(WindowEvent e) {
+							ugasiApl();
+						}
+					});
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -140,6 +154,13 @@ public class MenjacnicaGUI extends JFrame {
 	private JButton getBtnNewButton() {
 		if (btnNewButton == null) {
 			btnNewButton = new JButton("Dodaj kurs");
+			btnNewButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					DodajKursGUI dodajkurs = new DodajKursGUI();
+					dodajkurs.setVisible(true);
+					dodajkurs.setLocationRelativeTo(null);
+				}
+			});
 			btnNewButton.setBounds(10, 11, 120, 23);
 		}
 		return btnNewButton;
@@ -162,7 +183,7 @@ public class MenjacnicaGUI extends JFrame {
 	private JTable getTable() {
 		if (table == null) {
 			table = new JTable();
-			
+			table.setModel(new TabelaIzgled());
 			
 			addPopup(table, getPopupMenu());
 		}
@@ -178,6 +199,7 @@ public class MenjacnicaGUI extends JFrame {
 	private JTextArea getTextArea_1() {
 		if (textArea == null) {
 			textArea = new JTextArea();
+			textArea.setEditable(false);
 		}
 		return textArea;
 	}
@@ -309,6 +331,13 @@ public class MenjacnicaGUI extends JFrame {
 	private JMenuItem getMntmDodajKurs() {
 		if (mntmDodajKurs == null) {
 			mntmDodajKurs = new JMenuItem("Dodaj kurs");
+			mntmDodajKurs.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					DodajKursGUI dodajkurs = new DodajKursGUI();
+					dodajkurs.setVisible(true);
+					dodajkurs.setLocationRelativeTo(null);
+				}
+			});
 		}
 		return mntmDodajKurs;
 	}
