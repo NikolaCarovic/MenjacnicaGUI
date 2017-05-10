@@ -94,7 +94,7 @@ public class MenjacnicaGUI extends JFrame {
 		setTitle("Menjacnica");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MenjacnicaGUI.class.getResource("/money.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 500, 300);
+		setBounds(100, 100, 600, 400);
 		setJMenuBar(getMenuBar_1());
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -130,7 +130,7 @@ public class MenjacnicaGUI extends JFrame {
 		if (panel_1 == null) {
 			panel_1 = new JPanel();
 			panel_1.setBorder(new TitledBorder(null, "STATUS", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-			panel_1.setPreferredSize(new Dimension(10, 60));
+			panel_1.setPreferredSize(new Dimension(10, 90));
 			panel_1.setLayout(new BorderLayout(0, 0));
 			panel_1.add(getScrollPane_1(), BorderLayout.CENTER);
 		}
@@ -182,6 +182,13 @@ public class MenjacnicaGUI extends JFrame {
 	private JButton getBtnNewButton_2() {
 		if (btnNewButton_2 == null) {
 			btnNewButton_2 = new JButton("Izvrsi zamenu");
+			btnNewButton_2.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					IzvrsiZamenuGUI izvrsiZamenu = new IzvrsiZamenuGUI();
+					izvrsiZamenu.setVisible(true);
+					izvrsiZamenu.setLocationRelativeTo(null);
+				}
+			});
 			btnNewButton_2.setPreferredSize(new Dimension(110, 23));
 			btnNewButton_2.setBounds(10, 80, 120, 23);
 		}
@@ -364,6 +371,13 @@ public class MenjacnicaGUI extends JFrame {
 	private JMenuItem getMntmIzvrsiZamenu() {
 		if (mntmIzvrsiZamenu == null) {
 			mntmIzvrsiZamenu = new JMenuItem("Izvrsi zamenu");
+			mntmIzvrsiZamenu.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					IzvrsiZamenuGUI izvrsiZamenu = new IzvrsiZamenuGUI();
+					izvrsiZamenu.setVisible(true);
+					izvrsiZamenu.setLocationRelativeTo(null);
+				}
+			});
 		}
 		return mntmIzvrsiZamenu;
 	}

@@ -52,6 +52,7 @@ public class ObrisiKursGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public ObrisiKursGUI() {
+		setTitle("Obrisi kurs");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 280, 300);
@@ -178,9 +179,9 @@ public class ObrisiKursGUI extends JFrame {
 			chckbxNewCheckBox.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if( chckbxNewCheckBox.isSelected()) {
-						btnNewButton_1.setEnabled(true);
+						btnNewButton.setEnabled(true);
 					} else {
-						btnNewButton_1.setEnabled(false);
+						btnNewButton.setEnabled(false);
 					}
 				}
 			});
