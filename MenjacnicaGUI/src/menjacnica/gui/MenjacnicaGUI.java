@@ -93,7 +93,7 @@ public class MenjacnicaGUI extends JFrame {
 	public MenjacnicaGUI() {
 		setTitle("Menjacnica");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MenjacnicaGUI.class.getResource("/money.png")));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 600, 400);
 		setJMenuBar(getMenuBar_1());
 		contentPane = new JPanel();
@@ -253,7 +253,7 @@ public class MenjacnicaGUI extends JFrame {
 						if(odgovor == JFileChooser.APPROVE_OPTION){
 							File file = fc.getSelectedFile();
 							putanja = file.getAbsolutePath();
-							textArea.setText('\n' + textArea.getText() + "Ucitan fajl " + putanja);
+							textArea.append("Ucitan fajl " + putanja + '\n');
 						}
 					} catch (Exception e) {
 						JOptionPane.showMessageDialog(frame, e.getMessage(), "Greska",JOptionPane.ERROR_MESSAGE);
@@ -279,7 +279,7 @@ public class MenjacnicaGUI extends JFrame {
 						if (odgovor == JFileChooser.APPROVE_OPTION) {
 							File file = fc.getSelectedFile();
 							fajl = file.getAbsolutePath();
-							textArea.setText(textArea.getText() + "Sacuvan fajl: " + fajl + "\n");
+							textArea.append("Sacuvan fajl: " + fajl + "\n");
 						}
 					} catch (Exception e1) {
 						JOptionPane.showMessageDialog(frame, e1.getMessage(), "Greska", JOptionPane.ERROR_MESSAGE);
